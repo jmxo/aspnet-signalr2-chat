@@ -1,10 +1,9 @@
 ﻿<html>
 <head>
-    <title>Chat SignalR</title>
+    <title>SignalR Chat</title>
 
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
-    <!--<script src="Scripts/json2.js" type="text/javascript"></script>-->
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/jquery.signalR-2.1.2.js"></script>
@@ -46,21 +45,40 @@
     </script>
 </head>
 <body>
-    <div class="hero-unit">
-        <h2>Chat</h2>
+    <div class="container">
+     
+            <div class="jumbotron">
+                <h1>SignalR Chat</h1>
+                <p class="lead">Using a static proxy</p>
+            </div>
 
-        <label for="room">Room:</label><input type="text" id="room" />
-        <input type="button" id="join" value="Join" />
+            <form class="form-horizontal">
+                <div class="form-group form-inline">
+                    <label for="room" class="col-sm-2 control-label">Room</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="room" class="form-control" />
+                        <input type="button" id="join" value="Join" class="btn" />
+                    </div>
+                </div>
 
-        <label for="message">Message:</label><input type="text" id="message" />
+                <div class="form-group form-inline">
+                    <label for="message" class="col-sm-2 control-label">Message</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="message" class="form-control" />
 
-        <div>
-            <input type="button" id="send" value="Send message" />
-            <input type="button" id="sendprivate" value="Send message to room" />
-        </div>
-        <div class="container">
-            <ul id="messages"></ul>
-        </div>
+                        <input type="button" id="send" value="Send message" class="btn btn-primary" />
+                        <input type="button" id="sendprivate" value="Send message to room" class="btn"
+                    </div>
+
+                </div>
+            </form>
+
+            <hr />
+            <hr />
+
+            <div>
+                <ul id="messages"></ul>
+            </div>
     </div>
 </body>
 </html>
