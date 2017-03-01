@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="chat.html" />
+    <Content Include="chat_noproxy.html" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
