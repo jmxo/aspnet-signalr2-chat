@@ -48,6 +48,30 @@ namespace ChatSignalR
         //{
         //    //async work
         //}
+
+        public override Task OnConnected()
+        {
+            SendMonitoringData("Connected", Context.ConnectionId);
+            return base.OnConnected();
+        }
+
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            SendMonitoringData("Disconnected", Context.ConnectionId);
+            return base.OnDisconnected(stopCalled);
+        }
+
+        public override Task OnReconnected()
+        {
+            SendMonitoringData("Reconnected", Context.ConnectionId);
+            return base.OnReconnected();
+        }
+
+        private void SendMonitoringData(string eventType, string connectionId)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<MonitorHub>();
+            context.Clients.All.newEvent(eventType, connectionId);
+        }
     }
 
     public class SendData
