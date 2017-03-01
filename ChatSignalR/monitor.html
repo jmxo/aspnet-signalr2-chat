@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+    <title>Monitor</title>
+     <link href="Content/bootstrap.css" rel="stylesheet" />
+        <style>
+            body
+            {
+                background-color:#eee;
+            }
+        </style>
+
+        <!--<script src="Scripts/json2.js" type="text/javascript"></script>-->
+        <script src="Scripts/jquery-1.10.2.js" type="text/javascript"></script>    
+        <script src="Scripts/jquery.signalR-2.1.2.js"></script>
+        <script src="signalr/hubs"></script>
+        <script type="text/javascript">
+            var monitor;
+
+            $(function () {
+                monitor = $.connection.monitor;
+                monitor.client.newEvent = onNewEvent;
+                $.connection.hub.start();
+            });
+
+            function onNewEvent(eventType, client) {
+                $('#messages').append('<li>' + eventType + ' from ' + client + '</li>');
+            };
+        </script>
+</head>
+    <body>
+        <div>
+            <h2>Monitor</h2>
+            <ul id="messages"></ul>
+        </div>
+    </body>
+</html>
